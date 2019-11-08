@@ -1,0 +1,18 @@
+.signup-content {
+  width: 100%;
+  padding: 15%;
+  margin: auto;
+  background-color: #5b45aa;
+  height: 100vh;
+}
+
+.btn-signup {
+  background-color: #ffffff;
+  color: #5b45aa;
+  transition: .35s ease-in;
+}
+
+.btn-signup:hover {
+  background-color: #6d5da7;
+  color: #ffffff;
+}
