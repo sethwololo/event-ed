@@ -44,6 +44,9 @@ const Login = () => {
           <span>&#128214;</span>
           <a href="#" className="mx-2">Redefinir senha</a>
         </div>
+        <div className="btn-voltar mt-3 text-center font-weight-bold">
+          <Link to="/" className="mx-2">Página inicial</Link>
+        </div>
       </form>
     </div>
   );

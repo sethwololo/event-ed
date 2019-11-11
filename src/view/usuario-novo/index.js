@@ -50,7 +50,8 @@ const NovoUsuario = () => {
   }
 
   return (
-    <div className="signup-content d-flex align-items-center">
+    <div className="signup-content row d-flex align-items-center">
+      
       <form className="form-signin mx-auto">
         <div className="text-center mb-4">
           <img className="mb-4" src="/docs/4.3/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72" />
@@ -66,9 +67,11 @@ const NovoUsuario = () => {
         }
 
         <div className="opcoes-login mt-3 text-center">
-          <Link to="/" className="mx-2">Já tenho uma conta</Link>
+          <Link to="login" className="mx-2">Já tenho uma conta</Link>
         </div>
-
+        <div className="btn-voltar mt-3 text-center font-weight-bold">
+          <Link to="/" className="mx-2">Página inicial</Link>
+        </div>
       </form>
     </div>
   );

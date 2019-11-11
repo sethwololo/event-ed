@@ -27,3 +27,14 @@
   text-decoration: none;
   color: #8b80b4;
 }
+
+.btn-voltar a{
+  text-decoration: none;
+  color: #e1ddfa;
+  transition: .2s ease-in;
+}
+
+.btn-voltar a:hover {
+  text-decoration: none;
+  color: #8b80b4;
+}

@@ -9,9 +9,9 @@ import Home from './view/home/';
 function App() {
   return (
     <Router>
-      <Route exact path='/' component={Login} />
+      <Route exact path='/' component={Home} />
       <Route exact path='/novousuario' component={NovoUsuario} />
-      <Route exact path='/home' component={Home} />
+      <Route exact path='/login' component={Login} />
     </Router>
   );
 }
