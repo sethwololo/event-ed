@@ -6,19 +6,25 @@ import { toastSucesso, toastErro } from '../../config/toastr';
 
 const NovoUsuario = () => {
 
-  const [email, setEmail] = useState('');
-  const [senha, setSenha] = useState('');
+  const [email, setEmail] = useState();
+  const [senha, setSenha] = useState();
+  const [loading, setLoading] = useState();
 
   const cadastrar = async () => {
 
+    setLoading(true);
+
     if (!email || !senha) {
+      setLoading(false);
       return toastErro('É necessário informar um email e uma senha para realizar o cadastro! &#128529;');
     }
 
     try {
       await firebase.auth().createUserWithEmailAndPassword(email, senha);
       toastSucesso('Usuário cadastrado com sucesso! &#128518;');
+      setLoading(false);
     } catch (erro) {
+      setLoading(false);
       let msgErro = '';
       switch (erro.message) {
         case 'Password should be at least 6 characters':
@@ -37,7 +43,7 @@ const NovoUsuario = () => {
       toastErro(msgErro);
       msgErro = null;
     }
-    
+
   }
 
   return (
@@ -51,7 +57,10 @@ const NovoUsuario = () => {
         <input onChange={e => setEmail(e.target.value)} type="email" id="inputEmail" className="form-control my-2" placeholder="Email" required />
         <input onChange={e => setSenha(e.target.value)} type="password" id="inputPassword" className="form-control my-2" placeholder="Senha" required />
 
-        <button onClick={cadastrar} className="btn btn-lg btn-block btn-signup my-4" type="button">Cadastrar-se</button>
+        {
+          loading ? <div class="spinner-border text-light text-center" role="status"><span class="sr-only">Carregando...</span></div>
+            : <button onClick={cadastrar} className="btn btn-lg btn-block btn-signup my-4" type="button">Cadastrar-se</button>
+        }
 
       </form>
     </div>
