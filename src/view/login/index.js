@@ -1,9 +1,13 @@
 /* eslint-disable jsx-a11y/accessible-emoji */
 import React, { useState } from 'react';
 import './login.css';
+import {Link} from 'react-router-dom';
+
 import firebase from '../../config/firebase';
-import 'firebase/auth'
+import 'firebase/auth';
+
 import  { toastSucesso, toastErro } from '../../config/toastr';
+
 
 //  const loginSucesso = () => toastr["success"](" ", "Usuário logado com sucesso! &#128518;"); // Toast de sucesso ao logar
 //  const loginErro = () => toastr["error"](" ", "Verifique se seu Email e Senha estão corretos! &#128529;"); // Toast de erro ao logar
@@ -36,7 +40,7 @@ const Login = () => {
         <button onClick={logar} className="btn btn-lg btn-block btn-login" type="button">Entrar</button>
 
         <div className="opcoes-login mt-3 text-center">
-          <a href="#" className="mx-2">Cadastrar-se</a>
+          <Link to="novousuario" className="mx-2">Cadastrar-se</Link>
           <span>&#128214;</span>
           <a href="#" className="mx-2">Redefinir senha</a>
         </div>

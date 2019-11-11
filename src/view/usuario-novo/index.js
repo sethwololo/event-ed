@@ -1,7 +1,10 @@
 import React, { useState } from 'react'
 import firebase from '../../config/firebase';
+import {Link} from 'react-router-dom';
+
 import 'firebase/auth';
 import './usuario-novo.css';
+
 import { toastSucesso, toastErro } from '../../config/toastr';
 
 const NovoUsuario = () => {
@@ -61,6 +64,10 @@ const NovoUsuario = () => {
           loading ? <div class="spinner-border text-light text-center" role="status"><span class="sr-only">Carregando...</span></div>
             : <button onClick={cadastrar} className="btn btn-lg btn-block btn-signup my-4" type="button">Cadastrar-se</button>
         }
+
+        <div className="opcoes-login mt-3 text-center">
+          <Link to="/" className="mx-2">Já tenho uma conta</Link>
+        </div>
 
       </form>
     </div>
