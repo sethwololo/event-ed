@@ -1,33 +1,12 @@
+/* eslint-disable jsx-a11y/accessible-emoji */
 import React, { useState } from 'react';
 import './login.css';
 import firebase from '../../config/firebase';
 import 'firebase/auth'
-import toastr from 'toastr';
-import 'toastr/build/toastr.css';
+import  { toastSucesso, toastErro } from '../../config/toastr';
 
-
-
-//  Configurações do toastr
-toastr.options = {
-  "closeButton": false,
-  "debug": false,
-  "newestOnTop": true,
-  "progressBar": true,
-  "positionClass": "toast-top-right",
-  "preventDuplicates": false,
-  "onclick": null,
-  "showDuration": "150",
-  "hideDuration": "1000",
-  "timeOut": "5000",
-  "extendedTimeOut": "1000",
-  "showEasing": "swing",
-  "hideEasing": "linear",
-  "showMethod": "fadeIn",
-  "hideMethod": "fadeOut"
-}
-
-const loginSucesso = () => toastr["success"](" ", "Usuário logado com sucesso! &#128518;"); // Toast de sucesso ao logar
-const loginErro = () => toastr["error"](" ", "Verifique se seu Email e Senha estão corretos! &#128529;"); // Toast de erro ao logar
+//  const loginSucesso = () => toastr["success"](" ", "Usuário logado com sucesso! &#128518;"); // Toast de sucesso ao logar
+//  const loginErro = () => toastr["error"](" ", "Verifique se seu Email e Senha estão corretos! &#128529;"); // Toast de erro ao logar
 
 
 const Login = () => {
@@ -37,9 +16,9 @@ const Login = () => {
   const logar = async () => {
     try {
       const resultado = await firebase.auth().signInWithEmailAndPassword(email, senha);
-      return loginSucesso();
+      if (resultado) return toastSucesso('Usuário logado com sucesso! &#128518;');
     } catch (erro) {
-      return loginErro();
+      return toastErro('Verifique se seu Email e Senha estão corretos! &#128529;');
     }
   }
 

@@ -17,6 +17,9 @@ toastr.options = {
   "hideEasing": "linear",
   "showMethod": "fadeIn",
   "hideMethod": "fadeOut"
-}
-const loginSucesso = (mensagem) => toastr["success"](" ", mensagem); // Toast de sucesso ao logar
-const loginErro = (mensagem) => toastr["error"](" ", mensagem); // Toast de erro ao logar
+};
+
+const toastSucesso = (mensagem) => toastr["success"](" ", mensagem); // Toast de sucesso 
+const toastErro = (mensagem) => toastr["error"](" ", mensagem); // Toast de erro 
+
+export { toastSucesso, toastErro };

@@ -2,25 +2,43 @@ import React, { useState } from 'react'
 import firebase from '../../config/firebase';
 import 'firebase/auth';
 import './usuario-novo.css';
-import toastr from '../../config/toastr'
+import { toastSucesso, toastErro } from '../../config/toastr';
 
 const NovoUsuario = () => {
 
-  const [email, setEmail] = useState();
-  const [senha, setSenha] = useState();
-  const [msgTipo, setMsgTipo] = useState();
-  const [msg, setMsg] = useState();
+  const [email, setEmail] = useState('');
+  const [senha, setSenha] = useState('');
 
-  const cadastrar = () => {
-    setMsgTipo(null);
+  const cadastrar = async () => {
 
-    if(!email || !senha ) {
-      setMsgTipo('erro');
-      setMsg('É necessário informar o email e senha para fazer o cadastro');
-      return;
+    if (!email || !senha) {
+      return toastErro('É necessário informar um email e uma senha para realizar o cadastro! &#128529;');
     }
-  }
 
+    try {
+      await firebase.auth().createUserWithEmailAndPassword(email, senha);
+      toastSucesso('Usuário cadastrado com sucesso! &#128518;');
+    } catch (erro) {
+      let msgErro = '';
+      switch (erro.message) {
+        case 'Password should be at least 6 characters':
+          msgErro = 'A senha deve ter pelo menos 6 caracteres! &#128529;';
+          break;
+        case 'The email address is already in use by another account.':
+          msgErro = 'O Email já está sendo utilizado por outro usuário! &#128529;';
+          break;
+        case 'The email address is badly formatted.':
+          msgErro = 'O formato do email é inválido! &#128529;';
+          break;
+        default:
+          msgErro = 'Não foi possível cadastrar. Tente novamente mais tarde! &#128529;';
+          break;
+      }
+      toastErro(msgErro);
+      msgErro = null;
+    }
+    
+  }
 
   return (
     <div className="signup-content d-flex align-items-center">
@@ -33,12 +51,8 @@ const NovoUsuario = () => {
         <input onChange={e => setEmail(e.target.value)} type="email" id="inputEmail" className="form-control my-2" placeholder="Email" required />
         <input onChange={e => setSenha(e.target.value)} type="password" id="inputPassword" className="form-control my-2" placeholder="Senha" required />
 
-        <button className="btn btn-lg btn-block btn-signup my-4" type="button">Cadastrar-se</button>
+        <button onClick={cadastrar} className="btn btn-lg btn-block btn-signup my-4" type="button">Cadastrar-se</button>
 
-        <div className="msg-login text-white text-center my-4">
-          {msgTipo === 'sucesso' && <span>Usuário cadastrado com sucesso!</span>}
-          {msgTipo === 'erro' && <span><strong>Ops!</strong> Verifique se seu Email e Senha estão corretos!</span>}
-        </div>
       </form>
     </div>
   );
