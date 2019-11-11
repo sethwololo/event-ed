@@ -5,7 +5,7 @@ import {Link} from 'react-router-dom';
 import 'firebase/auth';
 import './usuario-novo.css';
 
-import { toastSucesso, toastErro } from '../../config/toastr';
+import { toastSucesso, toastErro, toastAviso } from '../../config/toastr';
 
 const NovoUsuario = () => {
 
@@ -43,7 +43,7 @@ const NovoUsuario = () => {
           msgErro = 'Não foi possível cadastrar. Tente novamente mais tarde! &#128529;';
           break;
       }
-      toastErro(msgErro);
+      toastAviso(msgErro);
       msgErro = null;
     }
 

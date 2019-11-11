@@ -20,6 +20,7 @@ toastr.options = {
 };
 
 const toastSucesso = (mensagem) => toastr["success"](" ", mensagem); // Toast de sucesso 
-const toastErro = (mensagem) => toastr["error"](" ", mensagem); // Toast de erro 
+const toastErro = (mensagem) => toastr["error"](" ", mensagem); 
+const toastAviso = (mensagem) => toastr["warning"](" ", mensagem);// Toast de erro 
 
-export { toastSucesso, toastErro };
+export { toastSucesso, toastErro, toastAviso };
