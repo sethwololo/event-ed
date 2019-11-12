@@ -1,0 +1,10 @@
+.btn-criar-evento {
+  background-color: #6d5da7;
+  color: #ffffff;
+}
+
+.btn-criar-evento:hover{
+  background-color: #f1e6f8;
+  color: #5b45aa;
+  transition: .35s ease-in;
+}

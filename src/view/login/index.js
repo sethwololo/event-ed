@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import './login.css';
 import { Link, Redirect } from 'react-router-dom';
+import logo from '../../img/icone-evented.svg';
 
 import firebase from '../../config/firebase';
 import 'firebase/auth';
@@ -43,7 +44,7 @@ const Login = () => {
 
       <form className="form-signin mx-auto">
         <div className="text-center mb-4">
-          <img className="mb-4" src="/docs/4.3/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72" />
+          <img className="mb-4" src={logo} alt="" width="100" height="100" />
           <h1 className="h3 mb-3 display-4 font-weight-bold text-white">Login</h1>
         </div>
 
