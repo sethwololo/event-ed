@@ -1,0 +1,29 @@
+.redefinir-content {
+  width: 100%;
+  padding: 15%;
+  margin: auto;
+  background-color: #5b45aa;
+  height: 100vh;
+}
+
+.btn-redefinir {
+  background-color: #ffffff;
+  color: #5b45aa;
+  transition: .35s ease-in;
+}
+
+.btn-redefinir:hover {
+  background-color: #6d5da7;
+  color: #ffffff;
+}
+
+.btn-voltar a {
+  text-decoration: none;
+  color: #e1ddfa;
+  transition: .2s ease-in;
+}
+
+.btn-voltar a:hover {
+  text-decoration: none;
+  color: #8b80b4;
+}

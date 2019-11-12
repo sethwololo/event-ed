@@ -54,8 +54,8 @@ const Login = () => {
 
         <div className="opcoes-login mt-3 text-center">
           <Link to="novousuario" className="mx-2">Cadastrar-se</Link>
-          <span>&#128214;</span>
-          <Link to="" className="mx-2">Redefinir senha</Link>
+          <span className="text-white">|</span>
+          <Link to="/usuarioredefinirsenha" className="mx-2">Redefinir senha</Link>
         </div>
         <div className="btn-voltar mt-3 text-center font-weight-bold">
           <Link to="/" className="mx-2">Página inicial</Link>
