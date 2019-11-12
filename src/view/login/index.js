@@ -1,12 +1,14 @@
 /* eslint-disable jsx-a11y/accessible-emoji */
 import React, { useState } from 'react';
 import './login.css';
-import {Link} from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 
 import firebase from '../../config/firebase';
 import 'firebase/auth';
 
-import  { toastSucesso, toastErro } from '../../config/toastr';
+import { toastSucesso, toastErro } from '../../config/toastr';
+
+import { useSelector, useDispatch } from 'react-redux';
 
 
 //  const loginSucesso = () => toastr["success"](" ", "Usuário logado com sucesso! &#128518;"); // Toast de sucesso ao logar
@@ -17,17 +19,28 @@ const Login = () => {
   const [email, setEmail] = useState();
   const [senha, setSenha] = useState();
 
+  const dispatch = useDispatch();
+
   const logar = async () => {
     try {
       const resultado = await firebase.auth().signInWithEmailAndPassword(email, senha);
-      if (resultado) return toastSucesso('Usuário logado com sucesso! &#128518;');
+      if (resultado) {
+        setTimeout(() => {
+          dispatch({ type: 'LOG_IN', usuarioEmail: email });
+        }, 500);
+        return toastSucesso('Logado com sucesso! &#128518;');
+      }
     } catch (erro) {
       return toastErro('Verifique se seu Email e Senha estão corretos! &#128529;');
     }
   }
 
+
   return (
     <div className="login-content d-flex align-items-center">
+
+      {useSelector(state => state.usuarioLogado) > 0 ? <Redirect to='/' /> : null}
+
       <form className="form-signin mx-auto">
         <div className="text-center mb-4">
           <img className="mb-4" src="/docs/4.3/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72" />
@@ -42,7 +55,7 @@ const Login = () => {
         <div className="opcoes-login mt-3 text-center">
           <Link to="novousuario" className="mx-2">Cadastrar-se</Link>
           <span>&#128214;</span>
-          <a href="#" className="mx-2">Redefinir senha</a>
+          <Link to="" className="mx-2">Redefinir senha</Link>
         </div>
         <div className="btn-voltar mt-3 text-center font-weight-bold">
           <Link to="/" className="mx-2">Página inicial</Link>
