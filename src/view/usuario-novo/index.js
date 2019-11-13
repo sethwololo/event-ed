@@ -51,7 +51,7 @@ const NovoUsuario = () => {
   }
 
   return (
-    <div className="signup-content row d-flex align-items-center">
+    <div className="signup-content d-flex align-items-center">
       <form className="form-signin mx-auto">
         <div className="text-center mb-4">
           <img className="mb-4" src={logo} alt="" width="100" height="100" />
@@ -62,14 +62,14 @@ const NovoUsuario = () => {
         <input onChange={e => setSenha(e.target.value)} type="password" id="inputPassword" className="form-control my-2" placeholder="Senha" required />
 
         {
-          loading ? <div class="spinner-border text-light text-center" role="status"><span class="sr-only">Carregando...</span></div>
+          loading ? <div class="spinner-border text-light mx-auto" role="status"><span class="sr-only">Carregando...</span></div>
             : <button onClick={cadastrar} className="btn btn-lg btn-block btn-signup my-4" type="button">Cadastrar-se</button>
         }
 
         <div className="opcoes-login mt-3 text-center">
           <Link to="login" className="mx-2">Já tenho uma conta</Link>
         </div>
-        <div className="btn-voltar mt-3 text-center font-weight-bold">
+        <div className="opcoes-login mt-3 text-center font-weight-bold">
           <Link to="/" className="mx-2">Página inicial</Link>
         </div>
       </form>

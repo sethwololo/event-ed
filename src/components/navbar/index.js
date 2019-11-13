@@ -7,7 +7,7 @@ import logo from '../../img/icone-evented.svg';
 const Navbar = () => {
   const dispatch = useDispatch();
   return (
-    <nav className="navbar navbar-expand-lg">
+    <nav className="navbar navbar-expand-lg navbar-gradiente">
       <span className="navbar-brand font-weight-bold text-white"><img src={logo} alt="EvenEd" width="36" height="36" /></span>
       <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
         <i className="fas fa-bars text-white"></i>
@@ -25,8 +25,10 @@ const Navbar = () => {
           </>
             :
           <>
-          <Link className="nav-item nav-link" to="novousuario">Cadastrar</Link>
-          <Link className="nav-item nav-link" to="login">Login</Link>
+          
+          <Link className="nav-item nav-link teste" to="novousuario">Cadastrar</Link>
+          <Link className="nav-item nav-link teste" to="login">Login</Link>
+          
           </>
           }
         </div>

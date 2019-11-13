@@ -1,11 +1,13 @@
 .navbar {
-  background-color: #5b45aa;
+  background-color: #BF3F34;
+  background-image: linear-gradient(180deg, #e95447 20%, #F24C3D 99%);
 }
 
 .nav-item {
-  color: #ffffff;
+  color: #F2F2F2;
+  font-weight: bold;
 }
 
-.nav-item:hover{
-  color: #8c7cdd;
+.nav-item:hover {
+  color: #732929;
 }
