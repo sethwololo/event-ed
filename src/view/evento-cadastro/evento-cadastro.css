@@ -1,10 +1,10 @@
-.container {
+.container-formulario {
   width: 100%;
   margin: 0 auto;
 }
 
 @media (min-width: 900px) {
-  .container {
+  .container-formulario {
     width: 40%;
     margin: 0 auto;
   }

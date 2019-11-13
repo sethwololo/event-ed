@@ -56,7 +56,7 @@ const EventoCadastro = () => {
         <div className="row mt-4">
           <h3 className="mx-auto font-weight-bolder">Cadastrar evento</h3>
         </div>
-        <div className="container">
+        <div className="container container-formulario">
           <form>
             <div className="form-group">
               <label>Título</label>
