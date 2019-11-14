@@ -28,7 +28,7 @@ const Login = () => {
         return toastSucesso('Logado com sucesso! &#128518;');
       }
     } catch (erro) {
-      return toastErro('Verifique se seu Email e Senha estão corretos! &#128529;');
+      return
     }
   }
 

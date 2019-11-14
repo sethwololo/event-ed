@@ -14,7 +14,7 @@ const EventoCadastro = () => {
   const [loading, setLoading] = useState()
   const [titulo, setTitulo] = useState();
   const [tipo, setTipo] = useState();
-  const [descricao, setDescricao] = useState();
+  const [detalhes, setDetalhes] = useState();
   const [data, setData] = useState();
   const [hora, setHora] = useState();
   const [imagem, setImagem] = useState();
@@ -32,7 +32,7 @@ const EventoCadastro = () => {
       await db.collection('eventos').add({
         titulo: titulo,
         tipo: tipo,
-        detalhes: descricao,
+        detalhes: detalhes,
         data: data,
         hora: hora,
         usuario: usuarioEmail,
@@ -73,7 +73,7 @@ const EventoCadastro = () => {
             </div>
             <div className="form-group">
               <label>Descrição</label>
-              <textarea onChange={(e) => setDescricao(e.target.value)} className="form-control" rows="3" />
+              <textarea onChange={(e) => setDetalhes(e.target.value)} className="form-control" rows="3" />
             </div>
             <div className="form-group row">
               <div className="col-6">
