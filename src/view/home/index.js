@@ -9,30 +9,33 @@ import EventoCard from '../../components/evento-card';
 
 const Home = () => {
 
+  const [pesquisa, setPesquisa] = useState('');
   const [eventos, setEventos] = useState([]);
   let listaeventos = [];
+  const db = firebase.firestore()
 
   useEffect(() => {
-    firebase.firestore().collection('eventos').get().then( async (resultado) => {
+    db.collection('eventos').get().then(async (resultado) => {
       await resultado.docs.forEach(doc => {
         listaeventos.push({
           id: doc.id,
           ...doc.data()
         });
       });
-      toastSucesso(resultado)
-      return setEventos(listaeventos);
-    })
-    
-  });
+      setEventos(listaeventos);
+    });
+    toastSucesso('Renderizando...')
+  }, [];
 
   return (
     <>
       <Navbar />
-      <h1>{useSelector(state => state.usuarioEmail)}</h1>
-      <h1>Logado: {useSelector(state => state.usuarioLogado)}</h1>
-      <div className="row">
-        {eventos.map(item => <EventoCard key={item.id} img={item.imagem} titulo={item.titulo} detalhes={item.detalhes} visualizacoes={item.visualizacoes} />) }
+      <div className="row pt-4 mx-3 text-center row-pesquisa">
+        
+        <input type="text" className="form-control barra-pesquisa" placeholder="Pesquisar evento" />
+      </div>
+      <div className="row mt-3 mx-2 p-4">
+        {eventos.map(item => <EventoCard key={item.id} id={item.id} img={item.imagem} titulo={item.titulo} detalhes={item.detalhes} visualizacoes={item.visualizacoes} />)}
       </div>
     </>
   );

@@ -1,0 +1,19 @@
+.icone-pesquisa {
+  text-align: right;
+}
+.row-pesquisa {
+  text-align: center;
+}
+.barra-pesquisa {
+  border-radius: 25px;
+  margin: 0 auto;
+  border: none;
+  background-color: #f2f2f2;
+}
+
+@media (min-width: 800px) {
+  .barra-pesquisa {
+    max-width: 40%;
+    margin: 0 auto;
+  }
+}
