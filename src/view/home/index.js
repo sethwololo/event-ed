@@ -9,6 +9,21 @@ import EventoCard from '../../components/evento-card';
 
 const Home = () => {
 
+  const [eventos, setEventos] = useState([]);
+  let listaeventos = [];
+
+  useEffect(() => {
+    firebase.firestore().collection('eventos').get().then( async (resultado) => {
+      await resultado.docs.forEach(doc => {
+        listaeventos.push({
+          id: doc.id,
+          ...doc.data()
+        });
+      });
+      setEventos(listaeventos);
+      console.log(listaeventos)
+    })
+  });
 
   return (
     <>
@@ -16,7 +31,7 @@ const Home = () => {
       <h1>{useSelector(state => state.usuarioEmail)}</h1>
       <h1>Logado: {useSelector(state => state.usuarioLogado)}</h1>
       <div className="row">
-        <EventoCard />
+        {eventos.map(item => <EventoCard key={item.id} img={item.imagem} titulo={item.titulo} detalhes={item.detalhes} visualizacoes={item.visualizacoes} />) }
       </div>
     </>
   );
