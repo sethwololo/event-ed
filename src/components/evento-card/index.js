@@ -1,11 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import './evento-card.css';
+import firebase from '../../config/firebase';
 
 const EventoCard = ({key, img, titulo, detalhes, visualizacoes}) => {
+  const [urlImagem, setUrlImagem] = useState();
+  useEffect(() => {
+    firebase.storage().ref(`imagens/${img}`).getDownloadURL().then(url => setUrlImagem(url));
+  });
+
   return (
     <div className="col-md-3 col-sm-12">
-      <img id="banner-evento" src="https://via.placeholder.com/1280x720" className="card-img-top img-card" alt="Imagem do evento"/>
+      <img id="banner-evento" src={urlImagem} className="card-img-top img-card" alt="Imagem do evento"/>
       <div className="card-body">
         <h5>{titulo}</h5>
         <p className="card-text text-justify">

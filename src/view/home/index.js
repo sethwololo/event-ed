@@ -20,9 +20,10 @@ const Home = () => {
           ...doc.data()
         });
       });
-      setEventos(listaeventos);
-      console.log(listaeventos)
+      toastSucesso(resultado)
+      return setEventos(listaeventos);
     })
+    
   });
 
   return (
