@@ -12,3 +12,20 @@
   flex-direction: column;
   align-items: center;
 }
+
+.btn-pdf {
+  background-color: #F24C3D;
+  background-image: linear-gradient(15deg, #d12a2a 15%, #F24C3D 80%);
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: none;
+  transition: .2s ease-in;
+}
+
+.btn-pdf:hover {
+  background-color: rgb(143, 62, 55);
+  background-image: linear-gradient(-15deg, #F24C3D 15%, #d12a2a 80%);
+  
+}
