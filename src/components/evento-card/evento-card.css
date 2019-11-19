@@ -5,17 +5,18 @@
 }
 
 .rodape-card {
-  height: 35px;
-  color: #BF3F34;
+  background-color: #f2f2f2;
   border-bottom-left-radius: 25px;
   border-bottom-right-radius: 25px;
 }
+
 .btn-detalhes {
   background-color: #F24C3D;
   color: #F2F2F2;
   font-weight: bold;
   border-radius: 20px;
 }
+
 .btn-detalhes:hover{
   background-color: #BF3F34;
   color: #F2F2F2;
@@ -24,11 +25,19 @@
 
 .card-text {
   max-height: 100px;
+  min-height: 100%;
   overflow: hidden;
 }
 
 .img-card {
-  max-height: 200px;
+  max-height: 150px;
   min-width: 100%;
-  min-height: 200px;
+  min-height: 150px;
+}
+
+.card-body {
+  max-height: 150px;
+  min-width: 100%;
+  min-height: 150px;
+  background-color: #f2f2f2;
 }

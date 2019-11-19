@@ -56,8 +56,8 @@ const Home = ({ match }) => {
   return (
     <>
       <Navbar />
-      <div className="row pt-4 mx-3 text-center row-pesquisa">
-        <h2 className="mx-auto mb-2 text-weight-black">Eventos</h2>
+      <div className="row p-4 mx-3 text-center row-pesquisa">
+        <h1 className="mx-auto font-weight-black">Eventos</h1>
         <input onChange={e => setPesquisa(e.target.value)} type="text" className="form-control barra-pesquisa" placeholder="Pesquisar evento" />
       </div>
       <div className="row mt-3 mx-2 p-4">
