@@ -15,10 +15,25 @@ const Home = ({ match }) => {
   useEffect(() => {
     let unsubscribe;
     if (match.params.parametro) {
-      unsubscribe = firebase
+      if (pesquisa === 'Todos') {
+        unsubscribe = firebase
+          .firestore()
+          .collection('eventos')
+          .where('usuario', '==', usuarioEmail)
+          .onSnapshot(snapshot => {
+            const listaDeEventos = snapshot.docs.map((doc) => ({
+              id: doc.id,
+              ...doc.data()
+            }));
+            setEventos(listaDeEventos);
+          });
+        return () => unsubscribe();
+      } else {
+        unsubscribe = firebase
         .firestore()
         .collection('eventos')
         .where('usuario', '==', usuarioEmail)
+        .where('tipo', '==', pesquisa)
         .onSnapshot(snapshot => {
           const listaDeEventos = snapshot.docs.map((doc) => ({
             id: doc.id,
@@ -27,6 +42,7 @@ const Home = ({ match }) => {
           setEventos(listaDeEventos);
         });
       return () => unsubscribe();
+      }
     } else {
       if (pesquisa === 'Todos') {
         unsubscribe = firebase
