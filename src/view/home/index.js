@@ -29,11 +29,11 @@ const Home = ({ match }) => {
   }, [pesquisa]);*/
 
   useEffect(() => {
-    setPesquisa('');
+    let unsubscribe;
     if (match.params.parametro) {
       alert("MEUS EVENTOS")
     } else {
-      firebase
+      unsubscribe = firebase
         .firestore()
         .collection('eventos')
         .onSnapshot(snapshot => {
@@ -43,7 +43,9 @@ const Home = ({ match }) => {
           }));
           setEventos(listaDeEventos);
         });
+      return () => unsubscribe();
     }
+
   }, []);
 
 
