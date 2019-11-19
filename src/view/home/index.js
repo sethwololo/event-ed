@@ -11,33 +11,9 @@ const Home = ({ match }) => {
 
   const [eventos, setEventos] = useState([]);
   const [pesquisa, setPesquisa] = useState('');
-  let listaeventos = [];
-  const db = firebase.firestore()
-  let buscarNoBanco = db.collection('eventos').orderBy('criacao')
+  //let listaeventos = [];
 
-  /*  useEffect(() => {
-      if (match.params.parametro) {
-        alert('MEUS EVENTOS')
-      } else {
-        /*db.collection('eventos').get()
-          .then(async resultado => {
-            await resultado.docs.forEach(doc => {
-              if (doc.data().titulo.indexOf(pesquisa) >= 0) {
-                listaeventos.push({
-                  id: doc.id,
-                  ...doc.data()
-                });
-              }
-            });
-            setEventos(listaeventos);
-  
-          })
-          .catch(e => toastErro(e));
-      }
-    });
-  */
-
-  useEffect(() => {
+  /*useEffect(() => {
     setPesquisa('');
     if (match.params.parametro) {
       alert("MEUS EVENTOS")
@@ -46,10 +22,34 @@ const Home = ({ match }) => {
         resultado.docs.forEach(doc => {
           if (doc.data().titulo.indexOf(pesquisa) >= 0) listaeventos.push({ id: doc.id, ...doc.data() });
         });
+        setEventos(listaeventos);
+        listaeventos = []
       });
-      setEventos(listaeventos);
     }
-  }, [pesquisa]);
+  }, [pesquisa]);*/
+
+  useEffect(() => {
+    setPesquisa('');
+    if (match.params.parametro) {
+      alert("MEUS EVENTOS")
+    } else {
+      firebase
+        .firestore()
+        .collection('eventos')
+        .onSnapshot(snapshot => {
+          const listaDeEventos = snapshot.docs.map((doc) => ({
+            id: doc.id,
+            ...doc.data()
+          }));
+          setEventos(listaDeEventos);
+        });
+    }
+  }, []);
+
+
+  console.log(eventos)
+
+
 
   return (
     <>
@@ -59,7 +59,7 @@ const Home = ({ match }) => {
         <input onChange={e => setPesquisa(e.target.value)} type="text" className="form-control barra-pesquisa" placeholder="Pesquisar evento" />
       </div>
       <div className="row mt-3 mx-2 p-4">
-        {teste.map(item => <EventoCard key={item.id} id={item.id} img={item.imagem} titulo={item.titulo} detalhes={item.detalhes} visualizacoes={item.visualizacoes} />)}
+        {eventos.map(item => <EventoCard key={item.id} id={item.id} img={item.imagem} titulo={item.titulo} detalhes={item.detalhes} visualizacoes={item.visualizacoes} />)}
       </div>
     </>
   );
