@@ -1,0 +1,14 @@
+.img-banner {
+  width: 100%;
+  min-height: 300px;
+  max-height: 350px;
+}
+
+.box-info {
+  background-color: #F24C3D;
+  background-image: linear-gradient(15deg, #d12a2a 15%, #F24C3D 80%);
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

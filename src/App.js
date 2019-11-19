@@ -9,6 +9,7 @@ import NovoUsuario from './view/usuario-novo/';
 import Home from './view/home/';
 import UsuarioRedefinirSenha from './view/usuario-redefinir-senha/';
 import EventoCadastro from './view/evento-cadastro/';
+import EventoDetalhes from './view/evento-detalhes/'
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
         <Route exact path='/login' component={Login} />
         <Route exact path='/usuarioredefinirsenha' component={UsuarioRedefinirSenha} />
         <Route exact path='/eventocadastro' component={EventoCadastro} />
+        <Route exact path='/eventodetalhes' component={EventoDetalhes} />
       </Router>
     </Provider>
   );

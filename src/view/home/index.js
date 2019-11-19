@@ -1,10 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import './home.css';
-//import { Link } from 'react-router-dom';
 import Navbar from '../../components/navbar/';
 import { useSelector } from 'react-redux';
 import firebase from '../../config/firebase';
-//import { toastSucesso, toastErro } from '../../config/toastr';
 import EventoCard from '../../components/evento-card';
 
 const Home = ({ match }) => {
@@ -13,21 +11,6 @@ const Home = ({ match }) => {
   const [pesquisa, setPesquisa] = useState('Todos');
   const usuarioEmail = useSelector(state => state.usuarioEmail);
   console.log(usuarioEmail);
-
-  /*useEffect(() => {
-    setPesquisa('');
-    if (match.params.parametro) {
-      alert("MEUS EVENTOS")
-    } else {
-      buscarNoBanco.onSnapshot(resultado => {
-        resultado.docs.forEach(doc => {
-          if (doc.data().titulo.indexOf(pesquisa) >= 0) listaeventos.push({ id: doc.id, ...doc.data() });
-        });
-        setEventos(listaeventos);
-        listaeventos = []
-      });
-    }
-  }, [pesquisa]);*/
 
   useEffect(() => {
     let unsubscribe;
