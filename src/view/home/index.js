@@ -50,15 +50,6 @@ const Home = ({ match }) => {
       setEventos(listaeventos);
     }
   }, [pesquisa]);
-  console.log(eventos)
-  let teste = eventos
-
-  
-
-
-
-
-
 
   return (
     <>
