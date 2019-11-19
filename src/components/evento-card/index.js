@@ -2,12 +2,13 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import './evento-card.css';
 import firebase from '../../config/firebase';
+import { toastAviso, toastSucesso } from '../../config/toastr';
 
 const EventoCard = ({id, img, titulo, detalhes, visualizacoes}) => {
   const [urlImagem, setUrlImagem] = useState();
   useEffect(() => {
-    firebase.storage().ref(`imagens/${img}`).getDownloadURL().then(url => setUrlImagem(url));
-  }, [img]);
+    firebase.storage().ref(`imagens/${img}`).getDownloadURL().then(url => {setUrlImagem(url) ; toastSucesso("renderImagem")}).catch(e => toastAviso('Erro ao carregar imagens dos eventos'));
+  }, [urlImagem]);
 
   return (
     <div className="col-md-3 col-sm-12">

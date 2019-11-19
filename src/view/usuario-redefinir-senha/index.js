@@ -7,11 +7,10 @@ import 'firebase/auth';
 
 import { toastSucesso, toastAviso } from '../../config/toastr';
 
-import { useSelector, useDispatch } from 'react-redux';
+// import { useSelector, useDispatch } from 'react-redux';
 
 const UsuarioRedefinirSenha = () => {
   const [email, setEmail] = useState();
-  const [masg, setMsg] = useState();
 
   const redefinirSenha = async () => {
     try {
