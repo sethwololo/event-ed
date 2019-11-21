@@ -2,13 +2,12 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import './evento-card.css';
 import firebase from '../../config/firebase';
-import { toastAviso, toastSucesso } from '../../config/toastr';
 
 const EventoCard = ({ id, img, titulo, detalhes, visualizacoes }) => {
   const [urlImagem, setUrlImagem] = useState();
   useEffect(() => {
     firebase.storage().ref(`imagens/${img}`).getDownloadURL().then(url => { setUrlImagem(url) });
-  }, [urlImagem]);
+  }, []);
 
   return (
     <div className="col-md-3 col-sm-12 mb-5">
@@ -26,7 +25,7 @@ const EventoCard = ({ id, img, titulo, detalhes, visualizacoes }) => {
 
         
       </div>
-      <div className="rodape-card p-3">
+      <div className="rodape-card p-5">
           <Link to={`/eventodetalhes/${id}`} className="btn btn-block btn-detalhes">Visualizar evento</Link>
         </div>
     </div>

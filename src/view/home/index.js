@@ -10,7 +10,6 @@ const Home = ({ match }) => {
   const [eventos, setEventos] = useState([]);
   const [pesquisa, setPesquisa] = useState('Todos');
   const usuarioEmail = useSelector(state => state.usuarioEmail);
-  console.log(usuarioEmail);
 
   useEffect(() => {
     let unsubscribe;
@@ -74,17 +73,12 @@ const Home = ({ match }) => {
 
   }, [pesquisa]);
 
-
-  console.log(eventos)
-
-
-
   return (
     <>
       <Navbar />
-      <div className="row p-4 mx-3 text-center row-pesquisa">
-        <h1 className="mx-auto font-weight-black">Eventos</h1>
-        <select onChange={e => setPesquisa(e.target.value)} className="form-control barra-pesquisa">
+      <div className="row p-4 mt-5 mx-3 text-center row-pesquisa">
+        <h1 className="mx-auto mt-2 font-weight-black">Eventos</h1>
+        <select onChange={e => setPesquisa(e.target.value)} className="form-control barra-pesquisa mt-4">
           <option>Todos</option>
           <option>Palestra</option>
           <option>Workshop</option>

@@ -34,3 +34,7 @@
 .spinner-border {
   color: #BF3F34;
 }
+
+.caixa-texto {
+  white-space: pre-wrap;
+}

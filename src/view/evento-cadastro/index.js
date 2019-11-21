@@ -73,7 +73,7 @@ const EventoCadastro = () => {
             </div>
             <div className="form-group">
               <label>Descrição</label>
-              <textarea onChange={(e) => setDetalhes(e.target.value)} className="form-control" rows="3" />
+              <textarea onChange={(e) => setDetalhes(e.target.value)} className="form-control caixa-texto" rows="3"/>
             </div>
             <div className="form-group row">
               <div className="col-6">
