@@ -14,6 +14,7 @@
   background-color: #F24C3D;
   color: #F2F2F2;
   transition: .35s ease-in;
+  border-radius: 30px;
 }
 
 .btn-criar-evento:hover {
@@ -38,3 +39,13 @@
 .caixa-texto {
   white-space: pre-wrap;
 }
+
+.cadastro-evento {
+  background-color: #ffffff;
+}
+
+.fundo {
+  background-color: #BF3F34;
+  flex: 1;
+}
+

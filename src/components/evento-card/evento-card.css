@@ -1,7 +1,15 @@
+.titulo-card {
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  white-space: nowrap;
+}
+
 .rodape-card {
   background-color: #f2f2f2;
   border-bottom-left-radius: 25px;
   border-bottom-right-radius: 25px;
+  padding-bottom: 10px;
 }
 
 .btn-detalhes {
@@ -17,11 +25,7 @@
   font-weight: bold;
 }
 
-.card-text {
-  max-height: 100px;
-  min-height: 100%;
-  overflow: hidden;
-}
+
 
 .img-card {
   background-color: #f2f2f2;
@@ -38,4 +42,12 @@
   max-width: 100%;
   min-height: 180px;
   background-color: #f2f2f2;
+}
+
+.card-body p {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 100%;
+  max-height: 100px;
+  white-space: pre-line;
 }

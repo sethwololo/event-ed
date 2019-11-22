@@ -55,3 +55,29 @@
 .box-detalhes {
   background-color: #f2f2f2;
 }
+
+.views {
+  position: absolute;
+  bottom: 20px;
+  left: -20px;
+  background-color: #00000085;
+  color: white;
+  padding-left: 50px;
+  padding-right: 30px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-radius: 50px;
+  font-size: 1.3em;
+}
+
+.box-img {
+  position: relative;
+}
+
+.tudo-card {
+  transition: .5s;
+}
+
+.texto-detalhes {
+  white-space: pre-line;
+}
