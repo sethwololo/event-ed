@@ -2,18 +2,19 @@
   width: 100%;
   padding: 15%;
   margin: auto;
-  background-color: #5b45aa;
+  background-color: #F24C3D;
+  background-image: linear-gradient(0deg, #BF3F34 5%, #F24C3D 100%);
   height: 100vh;
 }
 
 .btn-redefinir {
   background-color: #ffffff;
-  color: #5b45aa;
+  color: #BF3F34;
   transition: .35s ease-in;
 }
 
 .btn-redefinir:hover {
-  background-color: #6d5da7;
+  background-color: #732929;
   color: #ffffff;
 }
 
@@ -25,5 +26,5 @@
 
 .btn-voltar a:hover {
   text-decoration: none;
-  color: #8b80b4;
+  color: #732929;
 }

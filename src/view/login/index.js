@@ -24,7 +24,7 @@ const Login = () => {
       if (resultado) {
         setTimeout(() => {
           dispatch({ type: 'LOG_IN', usuarioEmail: email });
-        }, 500);
+        }, 200);
         return toastSucesso('Logado com sucesso! &#128518;');
       }
     } catch (erro) {
