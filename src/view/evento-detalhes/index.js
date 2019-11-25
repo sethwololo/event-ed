@@ -12,7 +12,8 @@ const EventoDetalhes = (props) => {
 
   const [evento, setEvento] = useState({});
   const [urlImg, setUrlImg] = useState();
-  const usuarioLogado = useSelector(state => state.usuarioEmail);
+  const usuarioEmail = useSelector(state => state.usuarioEmail);
+  const usuarioLogado = useSelector(state => state.usuarioLogado);
   const [carregando, setCarregando] = useState(1);
   const [excluido, setExcluido] = useState(0);
 
@@ -78,16 +79,18 @@ const EventoDetalhes = (props) => {
                   <span className="mt-2">{evento.hora}</span>
                 </div>
                 {
-                  usuarioLogado === evento.usuario ?
-                    <button onClick={remover} className="col-md-2 col-sm-12 btn-pdf p-3 my-2">
-                      <i className="fas fa-ticket-alt fa-3x"></i>
-                      <h4 className="my-auto"><strong>Excluir evento</strong></h4>
-                    </button>
-                    :
-                    <button className="col-md-2 col-sm-12 btn-pdf p-3 my-2" onClick={gerarIngresso} >
-                      <i className="fas fa-ticket-alt fa-3x"></i>
-                      <h4 className="my-auto"><strong>Gerar ingresso</strong></h4>
-                    </button>
+                  usuarioLogado ?
+                    usuarioEmail === evento.usuario ?
+                      <button onClick={remover} className="col-md-2 col-sm-12 btn-pdf p-3 my-2">
+                        <i className="fas fa-window-close fa-3x"></i>
+                        <h4 className="my-auto"><strong>Excluir evento</strong></h4>
+                      </button>
+                      :
+                      <button className="col-md-2 col-sm-12 btn-pdf p-3 my-2" onClick={gerarIngresso} >
+                        <i className="fas fa-ticket-alt fa-3x"></i>
+                        <h4 className="my-auto"><strong>Gerar ingresso</strong></h4>
+                      </button>
+                    : null
                 }
               </div>
               <div className="mx-auto p-4">
@@ -96,7 +99,7 @@ const EventoDetalhes = (props) => {
                   <p className="text-justify texto-detalhes">{evento.detalhes}</p>
                 </div>
                 {
-                  usuarioLogado === evento.usuario ? <Link to={`/editarevento/${props.match.params.id}`} className="btn-editar"><i className="fas fa-pen-square fa-3x" /></Link> : ''
+                  usuarioEmail === evento.usuario ? <Link to={`/editarevento/${props.match.params.id}`} className="btn-editar"><i className="fas fa-pen-square fa-3x" /></Link> : ''
                 }
               </div>
             </>
